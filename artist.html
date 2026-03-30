@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Кино — МузРФ</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg"/>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+
+  <!-- Собственные стили сайта -->
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+  <!-- ====== ШАПКА (Header) ====== -->
+  <header class="site-header sticky-top">
+    <nav class="navbar navbar-expand-lg container-xl py-2">
+
+      <!-- Логотип -->
+      <a class="navbar-brand" href="index.html">
+        <img src="img/logo.svg" alt="Логотип МузРФ"/>
+        МузРФ
+      </a>
+
+      <!-- Гамбургер для мобильных -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#mainNav" aria-controls="mainNav"
+              aria-expanded="false" aria-label="Открыть меню">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Навигационное меню -->
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav mx-auto gap-1">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Главная</a>
+          </li>
+          <li class="nav-item">
+            <!-- Активный пункт меню — родительский раздел -->
+            <a class="nav-link active" href="artists.html">Исполнители</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Жанры</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">О нас</a>
+          </li>
+        </ul>
+        <a href="add-artist.html" class="btn btn-nav-login ms-2">
+          <i class="bi bi-plus-lg me-1"></i>Добавить
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ====== ОСНОВНОЙ КОНТЕНТ ====== -->
+  <main>
+
+    <!-- Hero-блок исполнителя -->
+    <section class="artist-hero">
+      <div class="container-xl">
+
+        <!-- Хлебные крошки -->
+        <nav aria-label="breadcrumb" class="mb-3">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+            <li class="breadcrumb-item"><a href="artists.html">Исполнители</a></li>
+            <li class="breadcrumb-item active">Кино</li>
+          </ol>
+        </nav>
+
+        <!-- Информация об исполнителе: аватар + имя + кнопки -->
+        <div class="d-flex flex-column flex-md-row align-items-start gap-4">
+
+          <!-- Аватар-плейсхолдер (в реальном проекте — тег <img>) -->
+          <div class="artist-avatar flex-shrink-0">
+            <div class="text-center">
+              <i class="bi bi-person-square" style="font-size:2.5rem; color:var(--border);"></i>
+              <div class="mt-1">ФОТО</div>
+            </div>
+          </div>
+
+          <!-- Текстовые данные исполнителя -->
+          <div>
+            <h1 class="artist-detail-name mb-1">Кино</h1>
+            <p class="artist-detail-genre mb-1">Рок / Пост-панк / Новая волна</p>
+            <p class="text-muted mb-3" style="font-size:0.9rem;">
+              <i class="bi bi-calendar3 me-1"></i>1982 — 1990
+              &nbsp;·&nbsp;
+              <i class="bi bi-geo-alt me-1"></i>Ленинград, СССР
+            </p>
+
+            <!-- Кнопки действий -->
+            <div class="d-flex flex-wrap gap-2 mb-3">
+              <button class="btn btn-orange">
+                <i class="bi bi-play-fill me-1"></i>Слушать
+              </button>
+              <button class="btn btn-outline-warm">
+                <i class="bi bi-heart me-1"></i>В избранное
+              </button>
+              <a href="add-artist.html" class="btn btn-outline-warm">
+                <i class="bi bi-pencil me-1"></i>Редактировать
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Мини-статистика исполнителя -->
+    <section class="stats-strip">
+      <div class="container-xl">
+        <div class="row text-center text-md-start">
+          <div class="col-6 col-md-3 stat-item mb-2 mb-md-0">
+            <span class="stat-value">143</span>
+            <span class="stat-label">Треков</span>
+          </div>
+          <div class="col-6 col-md-3 stat-item mb-2 mb-md-0">
+            <span class="stat-value">12</span>
+            <span class="stat-label">Альбомов</span>
+          </div>
+          <div class="col-6 col-md-3 stat-item">
+            <span class="stat-value" style="color:var(--amber);">4.9 ★</span>
+            <span class="stat-label">Рейтинг</span>
+          </div>
+          <div class="col-6 col-md-3 stat-item">
+            <span class="stat-value">850K</span>
+            <span class="stat-label">Слушателей</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Основной контент: биография + треки -->
+    <section class="py-5">
+      <div class="container-xl">
+        <div class="row g-5">
+
+          <!-- Левая колонка: биография и дискография -->
+          <div class="col-lg-7">
+
+            <!-- Биография -->
+            <h2 class="section-title mb-3">Биография</h2>
+            <p class="text-muted lh-lg">
+              «Кино» — советская рок-группа, основанная в 1982 году в Ленинграде.
+              Лидер и основатель группы — <strong style="color:var(--text);">Виктор Цой</strong>.
+              Стиль: пост-панк, новая волна, рок. Группа стала одним из главных символов
+              советского андеграунда и по сей день остаётся культовым явлением в истории
+              отечественной музыки.
+            </p>
+            <p class="text-muted lh-lg">
+              За восемь лет существования коллектив выпустил девять студийных альбомов.
+              Песни «Перемен!», «Группа крови», «Звезда по имени Солнце» стали гимнами
+              целого поколения. Трагически погиб в 1990 году.
+            </p>
+
+            <hr style="border-color:var(--border); margin: 2rem 0;"/>
+
+            <!-- Список популярных треков -->
+            <h2 class="section-title mb-3">Популярные треки</h2>
+            <div class="d-flex flex-column gap-2">
+
+              <!-- Трек 1 -->
+              <div class="track-row">
+                <span class="text-muted me-3" style="font-size:0.85rem; width:20px;">1</span>
+                <div class="track-play-btn me-3">
+                  <i class="bi bi-play-fill"></i>
+                </div>
+                <div class="flex-grow-1">
+                  <div class="track-name">Перемен!</div>
+                  <div class="track-album">Ночь (1986)</div>
+                </div>
+                <span class="track-duration">4:22</span>
+              </div>
+
+              <!-- Трек 2 -->
+              <div class="track-row">
+                <span class="text-muted me-3" style="font-size:0.85rem; width:20px;">2</span>
+                <div class="track-play-btn me-3">
+                  <i class="bi bi-play-fill"></i>
+                </div>
+                <div class="flex-grow-1">
+                  <div class="track-name">Группа крови</div>
+                  <div class="track-album">Группа крови (1988)</div>
+                </div>
+                <span class="track-duration">4:58</span>
+              </div>
+
+              <!-- Трек 3 -->
+              <div class="track-row">
+                <span class="text-muted me-3" style="font-size:0.85rem; width:20px;">3</span>
+                <div class="track-play-btn me-3">
+                  <i class="bi bi-play-fill"></i>
+                </div>
+                <div class="flex-grow-1">
+                  <div class="track-name">Звезда по имени Солнце</div>
+                  <div class="track-album">Звезда по имени Солнце (1989)</div>
+                </div>
+                <span class="track-duration">4:33</span>
+              </div>
+
+              <!-- Трек 4 -->
+              <div class="track-row">
+                <span class="text-muted me-3" style="font-size:0.85rem; width:20px;">4</span>
+                <div class="track-play-btn me-3">
+                  <i class="bi bi-play-fill"></i>
+                </div>
+                <div class="flex-grow-1">
+                  <div class="track-name">Кукушка</div>
+                  <div class="track-album">Чёрный альбом (1990)</div>
+                </div>
+                <span class="track-duration">5:01</span>
+              </div>
+
+              <!-- Трек 5 -->
+              <div class="track-row">
+                <span class="text-muted me-3" style="font-size:0.85rem; width:20px;">5</span>
+                <div class="track-play-btn me-3">
+                  <i class="bi bi-play-fill"></i>
+                </div>
+                <div class="flex-grow-1">
+                  <div class="track-name">Спокойная ночь</div>
+                  <div class="track-album">Ночь (1986)</div>
+                </div>
+                <span class="track-duration">4:12</span>
+              </div>
+
+            </div><!-- /tracks -->
+          </div>
+
+          <!-- Правая колонка: дополнительная информация -->
+          <div class="col-lg-5">
+
+            <!-- Блок с деталями -->
+            <div class="p-3 rounded-3 mb-4" style="background:var(--white); border:1px solid var(--border);">
+              <h5 class="section-title mb-3" style="font-size:1.1rem;">Информация</h5>
+              <table class="table table-borderless mb-0" style="font-size:0.9rem;">
+                <tbody>
+                  <tr>
+                    <td class="text-muted ps-0">Страна</td>
+                    <td class="fw-600">СССР / Россия</td>
+                  </tr>
+                  <tr>
+                    <td class="text-muted ps-0">Город</td>
+                    <td>Ленинград</td>
+                  </tr>
+                  <tr>
+                    <td class="text-muted ps-0">Годы</td>
+                    <td>1982 — 1990</td>
+                  </tr>
+                  <tr>
+                    <td class="text-muted ps-0">Участники</td>
+                    <td>Виктор Цой, Юрий Каспарян, Михаил Науменко</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Теги-жанры -->
+            <div class="mb-4">
+              <h5 class="section-title mb-2" style="font-size:1.1rem;">Жанры</h5>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="badge rounded-pill px-3 py-2" style="background:var(--orange-light); color:var(--orange); font-size:0.82rem;">Рок</span>
+                <span class="badge rounded-pill px-3 py-2" style="background:var(--orange-light); color:var(--orange); font-size:0.82rem;">Пост-панк</span>
+                <span class="badge rounded-pill px-3 py-2" style="background:var(--orange-light); color:var(--orange); font-size:0.82rem;">Новая волна</span>
+                <span class="badge rounded-pill px-3 py-2" style="background:var(--orange-light); color:var(--orange); font-size:0.82rem;">Инди</span>
+              </div>
+            </div>
+
+            <!-- Блок альбомов -->
+            <div>
+              <h5 class="section-title mb-3" style="font-size:1.1rem;">Дискография</h5>
+              <div class="d-flex flex-column gap-2">
+                <div class="d-flex justify-content-between align-items-center p-2 rounded"
+                     style="background:var(--white); border:1px solid var(--border); font-size:0.9rem;">
+                  <span>45 (1982)</span>
+                  <span class="text-muted">8 треков</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center p-2 rounded"
+                     style="background:var(--white); border:1px solid var(--border); font-size:0.9rem;">
+                  <span>Начальник Камчатки (1984)</span>
+                  <span class="text-muted">10 треков</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center p-2 rounded"
+                     style="background:var(--white); border:1px solid var(--border); font-size:0.9rem;">
+                  <span>Группа крови (1988)</span>
+                  <span class="text-muted">11 треков</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center p-2 rounded"
+                     style="background:var(--orange-light); border:1px solid var(--border); font-size:0.9rem;">
+                  <span>Чёрный альбом (1990)</span>
+                  <span class="text-muted">10 треков</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div><!-- /row -->
+      </div>
+    </section>
+
+    <!-- Похожие исполнители -->
+    <section class="py-4" style="background:var(--cream-dark); border-top:1px solid var(--border);">
+      <div class="container-xl">
+        <h2 class="section-title mb-4">Похожие исполнители</h2>
+        <div class="row g-3">
+          <div class="col-6 col-md-3">
+            <div class="artist-card">
+              <div class="card-top-bar"></div>
+              <div class="card-body">
+                <span class="card-genre-badge">Рок</span>
+                <h3 class="card-title">Алиса</h3>
+                <p class="card-text">Рок / Хард-рок</p>
+                <a href="artist.html" class="btn btn-orange btn-sm mt-2">Открыть</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="artist-card">
+              <div class="card-top-bar"></div>
+              <div class="card-body">
+                <span class="card-genre-badge">Рок</span>
+                <h3 class="card-title">ДДТ</h3>
+                <p class="card-text">Рок / Арт-рок</p>
+                <a href="artist.html" class="btn btn-orange btn-sm mt-2">Открыть</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="artist-card">
+              <div class="card-top-bar"></div>
+              <div class="card-body">
+                <span class="card-genre-badge">Рок</span>
+                <h3 class="card-title">Nautilus Pompilius</h3>
+                <p class="card-text">Рок / Новая волна</p>
+                <a href="artist.html" class="btn btn-orange btn-sm mt-2">Открыть</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="artist-card">
+              <div class="card-top-bar"></div>
+              <div class="card-body">
+                <span class="card-genre-badge">Рок</span>
+                <h3 class="card-title">Аквариум</h3>
+                <p class="card-text">Рок / Арт-рок</p>
+                <a href="artist.html" class="btn btn-orange btn-sm mt-2">Открыть</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====== ПОДВАЛ (Footer) ====== -->
+  <footer class="site-footer">
+    <div class="container-xl">
+      <div class="row align-items-center">
+        <div class="col-md-5 d-flex align-items-center gap-3 mb-2 mb-md-0">
+          <div class="footer-logo">
+            <img src="img/logo.svg" alt="Логотип" width="28" height="28"/>
+            МузРФ
+          </div>
+          <p class="mb-0">© 2025 Портал отечественной музыки</p>
+        </div>
+        <div class="col-md-7 d-flex justify-content-md-end gap-3 flex-wrap">
+          <a href="#">ВКонтакте</a>
+          <a href="#">Telegram</a>
+          <a href="#">YouTube</a>
+          <a href="#">Яндекс.Музыка</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

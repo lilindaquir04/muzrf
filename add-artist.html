@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Добавить исполнителя — МузРФ</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg"/>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+
+  <!-- Собственные стили сайта -->
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+  <!-- ====== ШАПКА (Header) ====== -->
+  <header class="site-header sticky-top">
+    <nav class="navbar navbar-expand-lg container-xl py-2">
+
+      <!-- Логотип -->
+      <a class="navbar-brand" href="index.html">
+        <img src="img/logo.svg" alt="Логотип МузРФ"/>
+        МузРФ
+      </a>
+
+      <!-- Гамбургер для мобильных -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#mainNav" aria-controls="mainNav"
+              aria-expanded="false" aria-label="Открыть меню">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Навигационное меню -->
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav mx-auto gap-1">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Главная</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="artists.html">Исполнители</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Жанры</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">О нас</a>
+          </li>
+        </ul>
+        <!-- Активная кнопка — текущая страница -->
+        <a href="add-artist.html" class="btn btn-nav-login ms-2 active">
+          <i class="bi bi-plus-lg me-1"></i>Добавить
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ====== ОСНОВНОЙ КОНТЕНТ ====== -->
+  <main class="py-4">
+    <div class="container-xl">
+
+      <!-- Хлебные крошки -->
+      <nav aria-label="breadcrumb" class="mb-3">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+          <li class="breadcrumb-item"><a href="artists.html">Исполнители</a></li>
+          <li class="breadcrumb-item active">Добавить</li>
+        </ol>
+      </nav>
+
+      <!-- Заголовок страницы -->
+      <h1 class="section-title mb-4">Добавить исполнителя</h1>
+
+      <!-- Карточка формы -->
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="form-card">
+
+            <!-- Форма добавления исполнителя -->
+            <!-- action="#" — заглушка, в реальном проекте указывается адрес сервера -->
+            <form action="#" method="post" novalidate id="addArtistForm">
+
+              <!-- Поле: имя/псевдоним исполнителя -->
+              <div class="mb-3">
+                <label for="artistName" class="form-label">Имя / Псевдоним *</label>
+                <input type="text" class="form-control" id="artistName" name="name"
+                       placeholder="Например: Виктор Цой" required/>
+                <div class="invalid-feedback">Введите имя исполнителя.</div>
+              </div>
+
+              <!-- Два поля в одной строке: жанр и год -->
+              <div class="row g-3 mb-3">
+
+                <!-- Поле: основной жанр (выпадающий список Bootstrap) -->
+                <div class="col-md-6">
+                  <label for="artistGenre" class="form-label">Основной жанр *</label>
+                  <select class="form-select" id="artistGenre" name="genre" required>
+                    <option value="" disabled selected>Выберите жанр...</option>
+                    <option value="rock">Рок</option>
+                    <option value="pop">Поп</option>
+                    <option value="jazz">Джаз</option>
+                    <option value="classic">Классика</option>
+                    <option value="electronic">Электроника</option>
+                    <option value="hiphop">Хип-хоп</option>
+                    <option value="folk">Народная</option>
+                    <option value="other">Другое</option>
+                  </select>
+                  <div class="invalid-feedback">Выберите жанр.</div>
+                </div>
+
+                <!-- Поле: год основания/начала карьеры -->
+                <div class="col-md-6">
+                  <label for="artistYear" class="form-label">Год основания</label>
+                  <input type="number" class="form-control" id="artistYear" name="year"
+                         placeholder="1982" min="1900" max="2025"/>
+                </div>
+
+              </div>
+
+              <!-- Поле: город/регион -->
+              <div class="mb-3">
+                <label for="artistCity" class="form-label">Город / Регион</label>
+                <input type="text" class="form-control" id="artistCity" name="city"
+                       placeholder="Москва, Санкт-Петербург..."/>
+              </div>
+
+              <!-- Поле: биография (многострочное) -->
+              <div class="mb-3">
+                <label for="artistBio" class="form-label">Биография *</label>
+                <textarea class="form-control" id="artistBio" name="bio"
+                          rows="4" placeholder="Краткое описание творчества и истории исполнителя..."
+                          required></textarea>
+                <div class="invalid-feedback">Добавьте краткую биографию.</div>
+              </div>
+
+              <!-- Поле: ссылка на официальный сайт -->
+              <div class="mb-4">
+                <label for="artistSite" class="form-label">Официальный сайт / ВКонтакте</label>
+                <input type="url" class="form-control" id="artistSite" name="site"
+                       placeholder="https://vk.com/..."/>
+              </div>
+
+              <!-- Теги жанров: кастомные чекбоксы -->
+              <div class="mb-4">
+                <label class="form-label d-block">Дополнительные теги</label>
+                <div class="d-flex flex-wrap gap-2">
+                  <!-- Каждый тег — скрытый checkbox + кастомный label -->
+                  <div class="genre-tag">
+                    <input type="checkbox" id="tag-rock" name="tags" value="rock"/>
+                    <label for="tag-rock">Рок</label>
+                  </div>
+                  <div class="genre-tag">
+                    <input type="checkbox" id="tag-pop" name="tags" value="pop"/>
+                    <label for="tag-pop">Поп</label>
+                  </div>
+                  <div class="genre-tag">
+                    <input type="checkbox" id="tag-jazz" name="tags" value="jazz"/>
+                    <label for="tag-jazz">Джаз</label>
+                  </div>
+                  <div class="genre-tag">
+                    <input type="checkbox" id="tag-classic" name="tags" value="classic"/>
+                    <label for="tag-classic">Классика</label>
+                  </div>
+                  <div class="genre-tag">
+                    <input type="checkbox" id="tag-electronic" name="tags" value="electronic"/>
+                    <label for="tag-electronic">Электроника</label>
+                  </div>
+                  <div class="genre-tag">
+                    <input type="checkbox" id="tag-hiphop" name="tags" value="hiphop"/>
+                    <label for="tag-hiphop">Хип-хоп</label>
+                  </div>
+                  <div class="genre-tag">
+                    <input type="checkbox" id="tag-folk" name="tags" value="folk"/>
+                    <label for="tag-folk">Народная</label>
+                  </div>
+                  <div class="genre-tag">
+                    <input type="checkbox" id="tag-indie" name="tags" value="indie"/>
+                    <label for="tag-indie">Инди</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Кнопки: отправка формы и отмена -->
+              <div class="d-flex gap-3">
+                <button type="submit" class="btn btn-orange px-4">
+                  <i class="bi bi-check-lg me-2"></i>Добавить исполнителя
+                </button>
+                <a href="artists.html" class="btn btn-outline-warm px-4">
+                  Отмена
+                </a>
+              </div>
+
+            </form><!-- /form -->
+
+          </div><!-- /form-card -->
+        </div><!-- /col -->
+
+        <!-- Боковая подсказка -->
+        <div class="col-lg-4 mt-4 mt-lg-0">
+          <div class="p-3 rounded-3" style="background:var(--orange-light); border:1px solid var(--border);">
+            <h5 style="color:var(--orange); font-family:'Playfair Display',serif;">
+              <i class="bi bi-info-circle me-2"></i>Как заполнить
+            </h5>
+            <ul class="text-muted small mb-0 ps-3">
+              <li class="mb-1">Поля с <strong>*</strong> обязательны для заполнения.</li>
+              <li class="mb-1">Укажи реальный год начала карьеры или основания группы.</li>
+              <li class="mb-1">Биография — минимум 2–3 предложения об исполнителе.</li>
+              <li>Отметь все подходящие теги жанров.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div><!-- /row -->
+    </div>
+  </main>
+
+  <!-- ====== ПОДВАЛ (Footer) ====== -->
+  <footer class="site-footer">
+    <div class="container-xl">
+      <div class="row align-items-center">
+        <div class="col-md-5 d-flex align-items-center gap-3 mb-2 mb-md-0">
+          <div class="footer-logo">
+            <img src="img/logo.svg" alt="Логотип" width="28" height="28"/>
+            МузРФ
+          </div>
+          <p class="mb-0">© 2025 Портал отечественной музыки</p>
+        </div>
+        <div class="col-md-7 d-flex justify-content-md-end gap-3 flex-wrap">
+          <a href="#">ВКонтакте</a>
+          <a href="#">Telegram</a>
+          <a href="#">YouTube</a>
+          <a href="#">Яндекс.Музыка</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Валидация формы Bootstrap (добавляет классы was-validated при отправке) -->
+  <script>
+    document.getElementById('addArtistForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      // Включаем Bootstrap-валидацию
+      if (!this.checkValidity()) {
+        this.classList.add('was-validated');
+        return;
+      }
+      // Успешная отправка — показываем Bootstrap-алерт
+      this.classList.remove('was-validated');
+      const alert = document.createElement('div');
+      alert.className = 'alert alert-success mt-3';
+      alert.innerHTML = '<i class="bi bi-check-circle me-2"></i>Исполнитель успешно добавлен!';
+      this.after(alert);
+      this.reset();
+      setTimeout(() => alert.remove(), 4000);
+    });
+  </script>
+
+</body>
+</html>

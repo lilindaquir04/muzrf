@@ -1,0 +1,537 @@
+/* =========================================
+   МузРФ — Портал отечественной музыки
+   Файл стилей: style.css
+   ========================================= */
+
+/* --- CSS-переменные (цветовая палитра) --- */
+:root {
+  --cream:       #FAF6EE;
+  --cream-dark:  #F2EBD9;
+  --orange:      #ED6B14;
+  --orange-dark: #C4540A;
+  --orange-light:#FDE8D4;
+  --amber:       #F5A623;
+  --text:        #221508;
+  --text-muted:  #6B5740;
+  --border:      #DDD0BC;
+  --white:       #FFFFFF;
+  --card-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+/* --- Базовые стили --- */
+body {
+  background-color: var(--cream);
+  color: var(--text);
+  font-family: 'Lora', Georgia, serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+/* --- Шапка (header) --- */
+.site-header {
+  background-color: var(--white);
+  border-bottom: 2px solid var(--border);
+  padding: 0;
+}
+
+/* Логотип в шапке */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--orange) !important;
+  text-decoration: none;
+}
+
+.navbar-brand img {
+  width: 38px;
+  height: 38px;
+}
+
+/* Навигационные ссылки */
+.navbar-nav .nav-link {
+  color: var(--text-muted) !important;
+  font-size: 0.95rem;
+  padding: 0.5rem 1rem;
+  transition: color 0.2s;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: var(--orange) !important;
+}
+
+/* Кнопка "Войти" в навбаре */
+.btn-nav-login {
+  background-color: var(--orange);
+  color: var(--white) !important;
+  border-radius: 6px;
+  padding: 0.4rem 1.2rem;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.btn-nav-login:hover {
+  background-color: var(--orange-dark);
+}
+
+/* --- Подвал (footer) --- */
+.site-footer {
+  background-color: var(--white);
+  border-top: 2px solid var(--border);
+  padding: 1.2rem 0;
+  margin-top: auto;
+}
+
+.site-footer .footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  color: var(--orange);
+  font-size: 1.1rem;
+}
+
+.site-footer p,
+.site-footer a {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  color: var(--orange);
+}
+
+/* --- Hero-блок (главная страница) --- */
+.hero-section {
+  background-color: var(--orange-light);
+  padding: 4rem 0 3.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Декоративные круги позади текста */
+.hero-section::before,
+.hero-section::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.25;
+}
+
+.hero-section::before {
+  width: 360px;
+  height: 360px;
+  background: var(--amber);
+  right: -60px;
+  top: -80px;
+}
+
+.hero-section::after {
+  width: 200px;
+  height: 200px;
+  background: var(--orange);
+  right: 120px;
+  bottom: -60px;
+}
+
+.hero-section .hero-label {
+  color: var(--orange);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.hero-section h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.hero-section .hero-sub {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 520px;
+}
+
+/* --- Блок статистики --- */
+.stats-strip {
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 1.5rem 0;
+}
+
+.stat-item .stat-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--orange);
+  display: block;
+}
+
+.stat-item .stat-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* --- Карточки исполнителей --- */
+.artist-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.2s, box-shadow 0.2s;
+  height: 100%;
+}
+
+.artist-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+/* Оранжевая полоска вверху карточки */
+.artist-card .card-top-bar {
+  height: 4px;
+  background: var(--orange);
+}
+
+.artist-card .card-body {
+  padding: 1.1rem 1.2rem;
+}
+
+.artist-card .card-genre-badge {
+  display: inline-block;
+  background: var(--orange-light);
+  color: var(--orange);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.artist-card .card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+}
+
+.artist-card .card-text {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
+/* --- Кнопки --- */
+.btn-orange {
+  background-color: var(--orange);
+  color: var(--white);
+  border: none;
+  border-radius: 7px;
+  font-weight: 600;
+  padding: 0.55rem 1.5rem;
+  transition: background-color 0.2s;
+}
+
+.btn-orange:hover {
+  background-color: var(--orange-dark);
+  color: var(--white);
+}
+
+.btn-outline-warm {
+  background-color: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  font-weight: 500;
+  padding: 0.55rem 1.5rem;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.btn-outline-warm:hover {
+  border-color: var(--orange);
+  color: var(--orange);
+}
+
+/* --- Форма --- */
+.form-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem 2.5rem;
+  box-shadow: var(--card-shadow);
+}
+
+.form-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+}
+
+.form-control,
+.form-select {
+  background-color: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--orange);
+  box-shadow: 0 0 0 3px rgba(237,107,20,0.15);
+  background-color: var(--white);
+}
+
+/* Теги-чекбоксы */
+.genre-tag input[type="checkbox"] {
+  display: none;
+}
+
+.genre-tag label {
+  display: inline-block;
+  background: var(--orange-light);
+  color: var(--orange);
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.15s;
+  user-select: none;
+}
+
+.genre-tag input[type="checkbox"]:checked + label {
+  background: var(--orange);
+  color: var(--white);
+  border-color: var(--orange-dark);
+}
+
+/* --- Таблица (список) --- */
+.artists-table thead {
+  background-color: var(--orange-light);
+}
+
+.artists-table thead th {
+  color: var(--orange);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: none;
+  padding: 0.85rem 1rem;
+}
+
+.artists-table tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: background-color 0.15s;
+}
+
+.artists-table tbody tr:hover {
+  background-color: var(--orange-light);
+}
+
+.artists-table td {
+  padding: 0.85rem 1rem;
+  vertical-align: middle;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.artists-table td.artist-name {
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* Рейтинг со звёздочкой */
+.rating-badge {
+  color: var(--amber);
+  font-weight: 700;
+}
+
+/* Фильтр-кнопки */
+.filter-btn {
+  border: 1px solid var(--border);
+  background: var(--white);
+  color: var(--text-muted);
+  border-radius: 6px;
+  padding: 0.4rem 1rem;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--orange);
+  color: var(--white);
+  border-color: var(--orange);
+}
+
+/* --- Страница исполнителя --- */
+.artist-hero {
+  background-color: var(--orange-light);
+  padding: 2.5rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.artist-hero::after {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: var(--amber);
+  border-radius: 50%;
+  right: -80px;
+  top: -60px;
+  opacity: 0.22;
+}
+
+/* Аватар-плейсхолдер */
+.artist-avatar {
+  width: 140px;
+  height: 140px;
+  background: var(--cream-dark);
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.artist-detail-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.artist-detail-genre {
+  color: var(--orange);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Трек-лист */
+.track-row {
+  display: flex;
+  align-items: center;
+  padding: 0.7rem 1rem;
+  border-radius: 7px;
+  transition: background-color 0.15s;
+}
+
+.track-row:nth-child(odd) {
+  background: var(--white);
+  border: 1px solid var(--border);
+}
+
+.track-row:hover {
+  background-color: var(--orange-light);
+}
+
+.track-play-btn {
+  width: 30px;
+  height: 30px;
+  background: var(--orange);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.7rem;
+  flex-shrink: 0;
+}
+
+.track-name {
+  font-weight: 700;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.track-album {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.track-duration {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-left: auto;
+}
+
+/* --- Хлебные крошки --- */
+.breadcrumb {
+  background: none;
+  padding: 0;
+  font-size: 0.88rem;
+}
+
+.breadcrumb-item a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+  color: var(--orange);
+}
+
+.breadcrumb-item.active {
+  color: var(--orange);
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  color: var(--border);
+}
+
+/* --- Секционные заголовки --- */
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* --- Пагинация --- */
+.page-link {
+  color: var(--text-muted);
+  border-color: var(--border);
+  background-color: var(--white);
+}
+
+.page-link:hover {
+  color: var(--orange);
+  background-color: var(--orange-light);
+  border-color: var(--orange);
+}
+
+.page-item.active .page-link {
+  background-color: var(--orange);
+  border-color: var(--orange);
+  color: var(--white);
+}

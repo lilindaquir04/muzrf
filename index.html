@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>МузРФ — Портал отечественной музыки</title>
+
+  <!-- Favicon — SVG логотип сайта -->
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg"/>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+
+  <!-- Google Fonts: Playfair Display (заголовки) + Lora (основной текст) -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+
+  <!-- Собственные стили сайта -->
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+  <!-- ====== ШАПКА (Header) ====== -->
+  <header class="site-header sticky-top">
+    <nav class="navbar navbar-expand-lg container-xl py-2">
+
+      <!-- Логотип: SVG-иконка + название сайта -->
+      <a class="navbar-brand" href="index.html">
+        <img src="img/logo.svg" alt="Логотип МузРФ"/>
+        МузРФ
+      </a>
+
+      <!-- Гамбургер-кнопка для мобильных устройств -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#mainNav" aria-controls="mainNav"
+              aria-expanded="false" aria-label="Открыть меню">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Навигационное меню сайта -->
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav mx-auto gap-1">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Главная</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="artists.html">Исполнители</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Жанры</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">О нас</a>
+          </li>
+        </ul>
+        <!-- Кнопка добавления исполнителя -->
+        <a href="add-artist.html" class="btn btn-nav-login ms-2">
+          <i class="bi bi-plus-lg me-1"></i>Добавить
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ====== ОСНОВНОЙ КОНТЕНТ ====== -->
+  <main>
+
+    <!-- Hero-секция: главный баннер -->
+    <section class="hero-section">
+      <div class="container-xl">
+        <div class="row">
+          <div class="col-lg-7">
+            <!-- Подпись над заголовком -->
+            <p class="hero-label">Портал отечественной музыки</p>
+
+            <!-- Главный заголовок -->
+            <h1 class="mb-3">Открой мир<br/>Российской музыки</h1>
+
+            <!-- Подзаголовок-описание -->
+            <p class="hero-sub mb-4">
+              Тысячи исполнителей, альбомов и треков — от советской классики
+              до современной электроники. Всё в одном месте.
+            </p>
+
+            <!-- Кнопки действий -->
+            <div class="d-flex flex-wrap gap-3">
+              <a href="artists.html" class="btn btn-orange">
+                <i class="bi bi-play-fill me-1"></i>Начать слушать
+              </a>
+              <a href="artists.html" class="btn btn-outline-warm">
+                Каталог <i class="bi bi-arrow-right ms-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Полоса статистики -->
+    <section class="stats-strip">
+      <div class="container-xl">
+        <div class="row text-center text-md-start">
+
+          <!-- Статистика: количество исполнителей -->
+          <div class="col-6 col-md-3 stat-item mb-2 mb-md-0">
+            <span class="stat-value">12 000+</span>
+            <span class="stat-label">Исполнителей</span>
+          </div>
+
+          <!-- Статистика: количество треков -->
+          <div class="col-6 col-md-3 stat-item mb-2 mb-md-0">
+            <span class="stat-value">85 000+</span>
+            <span class="stat-label">Треков</span>
+          </div>
+
+          <!-- Статистика: количество жанров -->
+          <div class="col-6 col-md-3 stat-item">
+            <span class="stat-value">300+</span>
+            <span class="stat-label">Жанров</span>
+          </div>
+
+          <!-- Статистика: количество пользователей -->
+          <div class="col-6 col-md-3 stat-item">
+            <span class="stat-value">50 000+</span>
+            <span class="stat-label">Пользователей</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Секция популярных исполнителей -->
+    <section class="py-5">
+      <div class="container-xl">
+
+        <!-- Заголовок секции + ссылка "все" -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h2 class="section-title mb-0">Популярные исполнители</h2>
+          <a href="artists.html" class="text-muted text-decoration-none" style="font-size:0.9rem;">
+            Все исполнители <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Сетка карточек исполнителей (Bootstrap row + col) -->
+        <div class="row g-3">
+
+          <!-- Карточка: Кино -->
+          <div class="col-6 col-md-3">
+            <div class="artist-card">
+              <div class="card-top-bar"></div>
+              <div class="card-body">
+                <span class="card-genre-badge">Рок</span>
+                <h3 class="card-title">Кино</h3>
+                <p class="card-text">Рок / Пост-панк</p>
+                <a href="artist.html" class="btn btn-orange btn-sm mt-2">Открыть</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Карточка: Земфира -->
+          <div class="col-6 col-md-3">
+            <div class="artist-card">
+              <div class="card-top-bar"></div>
+              <div class="card-body">
+                <span class="card-genre-badge">Инди</span>
+                <h3 class="card-title">Земфира</h3>
+                <p class="card-text">Инди-рок / Альтернатива</p>
+                <a href="artist.html" class="btn btn-orange btn-sm mt-2">Открыть</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Карточка: Би-2 -->
+          <div class="col-6 col-md-3">
+            <div class="artist-card">
+              <div class="card-top-bar"></div>
+              <div class="card-body">
+                <span class="card-genre-badge">Поп</span>
+                <h3 class="card-title">Би-2</h3>
+                <p class="card-text">Рок / Поп-рок</p>
+                <a href="artist.html" class="btn btn-orange btn-sm mt-2">Открыть</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Карточка: Monetochka -->
+          <div class="col-6 col-md-3">
+            <div class="artist-card">
+              <div class="card-top-bar"></div>
+              <div class="card-body">
+                <span class="card-genre-badge">Электро</span>
+                <h3 class="card-title">Monetochka</h3>
+                <p class="card-text">Инди-поп / Электроника</p>
+                <a href="artist.html" class="btn btn-orange btn-sm mt-2">Открыть</a>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /row -->
+      </div>
+    </section>
+
+    <!-- Секция CTA: призыв добавить исполнителя -->
+    <section class="py-4" style="background:var(--orange-light); border-top:1px solid var(--border);">
+      <div class="container-xl text-center">
+        <h3 class="section-title mb-2">Знаешь интересного исполнителя?</h3>
+        <p class="text-muted mb-3">Добавь его в базу — помоги сообществу открывать новую музыку.</p>
+        <a href="add-artist.html" class="btn btn-orange px-4">
+          <i class="bi bi-plus-circle me-2"></i>Добавить исполнителя
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====== ПОДВАЛ (Footer) ====== -->
+  <footer class="site-footer">
+    <div class="container-xl">
+      <div class="row align-items-center">
+
+        <!-- Логотип и копирайт в подвале -->
+        <div class="col-md-5 d-flex align-items-center gap-3 mb-2 mb-md-0">
+          <div class="footer-logo">
+            <img src="img/logo.svg" alt="Логотип" width="28" height="28"/>
+            МузРФ
+          </div>
+          <p class="mb-0">© 2025 Портал отечественной музыки</p>
+        </div>
+
+        <!-- Ссылки на социальные сети в подвале -->
+        <div class="col-md-7 d-flex justify-content-md-end gap-3 flex-wrap">
+          <a href="#">ВКонтакте</a>
+          <a href="#">Telegram</a>
+          <a href="#">YouTube</a>
+          <a href="#">Яндекс.Музыка</a>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS (включает Popper.js) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
